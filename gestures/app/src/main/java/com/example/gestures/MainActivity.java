@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gst.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
         msg.setText("onSingleTapConfirmed");
         return false;
