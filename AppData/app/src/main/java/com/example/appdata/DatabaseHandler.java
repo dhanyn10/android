@@ -20,14 +20,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //the query
-        String query = "CREATE TABLE " + TABLE_PRODUCTS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_PRODUCTNAME + "TEXT" + ");";
+        String query = " CREATE TABLE " + TABLE_PRODUCTS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_PRODUCTNAME + " TEXT " + ");";
         //execute query
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
         onCreate(db);
     }
     public  void addProduct(Products products)
@@ -46,6 +46,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void deleteProduct(String productname)
     {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM TABLE_PRODUCTS WHERE " + COLUMN_PRODUCTNAME + "=\'" + productname + "\';");
+        db.execSQL(" DELETE FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME + "=\'" + productname + "\';");
     }
 }
