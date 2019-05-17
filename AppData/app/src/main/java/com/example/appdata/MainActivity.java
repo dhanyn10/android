@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnadd =  findViewById(R.id.btnadd);
         btnadd.setOnClickListener(btnclickadd);
+
+        Button btndelete = findViewById(R.id.btndelete);
+        btndelete.setOnClickListener(btnclickdelete);
     }
 
     public void printDatabase()
@@ -36,7 +39,17 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener btnclickadd = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Log.d("STATE", "add");
+            Products products = new Products(input.getText().toString());
+            dbase.addProduct(products);
+            printDatabase();
+        }
+    };
+    private View.OnClickListener btnclickdelete = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String inputtext = input.getText().toString();
+            dbase.deleteProduct(inputtext);
+            printDatabase();
         }
     };
 }
