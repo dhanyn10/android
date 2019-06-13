@@ -1,4 +1,4 @@
-package com.example.parse_json;
+package com.example.parse_json_post_request;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.parse_json;
+package com.example.parse_json_post_request;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
